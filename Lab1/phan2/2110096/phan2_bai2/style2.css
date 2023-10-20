@@ -1,0 +1,108 @@
+* {
+    font-family: arial;
+}
+
+img {
+    border: 10px solid red;
+    border-radius: 12px;
+    width: 300px;
+}
+
+h2 {
+    color: brown;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.about p {
+    font-size: 22px;
+}
+
+#About {
+    text-shadow: 3px 3px blue;
+}
+
+.firstChar {
+    font-size: 400%;
+    font-weight: bold;
+}
+
+.text {
+    text-decoration: underline;
+    font-size: 30px;
+    font-weight: bold;
+}
+.italic {
+    font-style: italic;
+    font-weight: 500;
+}
+
+ul {
+    font-size: 22px;
+}
+
+ul li {
+    margin-bottom: 12px;
+}
+
+li {
+    list-style: none;
+    margin: 6px 0;
+}
+
+.bullet::before {
+    content: "\2022";
+    color: black;
+    display: inline-block;
+    width: 1em;
+}
+
+.list-red {
+    color: red;
+}
+
+.list-red::before {
+    content: "\25E6";
+    color: red;
+    display: inline-block;
+    width: 1em;
+}
+
+.list-blue {
+    color: blue;
+}
+
+.list-blue::before {
+    content: "\25E6";
+    color: black;
+    display: inline-block;
+    width: 1em;
+}
+
+table, th, td {
+    border: 2px solid gray;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: center;
+    font-size: 22px;
+    padding: 10px 20px;
+}
+
+.social {
+    margin-top: 30px;
+    font-size: 27px;
+}
+
+#twitter {
+    text-decoration: none;
+    color: #598487;
+    text-shadow: 1px 1px 6px black;
+}
+
+#facebook {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    padding: 0 5px;
+}
