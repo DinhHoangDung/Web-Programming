@@ -1,4 +1,3 @@
-
 var year = document.getElementById("year");
 for(var i = 1950; i <= 2023; i++) {
     year.innerHTML += `<option value="${i}">${i}</option>`
