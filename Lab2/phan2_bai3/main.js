@@ -1,13 +1,7 @@
-function year()
-{
-    var year = document.getElementById("year");
-  
-    for (var i = 2022; i > 1920; i--) {
-      var options = document.createElement("option");
-      options.value = i;
-      options.text = i;
-      year.appendChild(options);
-    }
+
+var year = document.getElementById("year");
+for(var i = 1950; i <= 2023; i++) {
+    year.innerHTML += `<option value="${i}">${i}</option>`
 }
 
 function submit()
