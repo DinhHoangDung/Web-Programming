@@ -68,7 +68,7 @@
                 {
                     echo '<script>alert("About must be less than 10000 characters!")</script>';
                 }
-                else echo '<script>alert("Submit successfully!")</script>';
+                else echo '<script>alert("Complete!")</script>';
             }
         }
     ?>
