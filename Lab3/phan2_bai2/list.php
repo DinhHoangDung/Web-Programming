@@ -108,7 +108,9 @@
                                         <div class='card text-center'>
                                             <img class='card-img-top' src='" . $row["image"] ."' alt='Card image' />
                                             <div class='card-body'>
-                                                <p class='card-img-top' src='" . $row["image"] ."' alt='Card image' /></p>
+                                                <p class='card-text fw-bold'>" . $row["name"] ."</p>
+                                                <p class='card-text text-muted'>Price: " . $row["price"] ."</p>
+                                                <a href='detail.php?id=" . $row["id"] . "'" . " class='btn btn-outline-secondary'>Buy Now</a>
                                             </div>
                                         </div>
                                     </div>";
