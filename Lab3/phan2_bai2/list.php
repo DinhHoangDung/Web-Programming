@@ -4,8 +4,8 @@
     $password = "";
     $database = "shop";
 
-    $connect = new mysqli($severname, $username, $password, $database);
-    if ($connect->connnect_error) 
+    $connect = new mysqli($servername, $username, $password, $database);
+    if ($connect->connect_error) 
     {
         die("Connection failed: " . $connect->connect_error);
     }
@@ -77,7 +77,7 @@
                             <a href="#" class="list-group-item list-group-item-secondary text-center bold">Top Products</a>
                             <?php
                                 $sql = "SELECT * FROM products";
-                                $result = $conn->query($sql);
+                                $result = $connect->query($sql);
                                 if ($result->num_rows > 0) 
                                 {
                                     while ($row = $result->fetch_assoc()) 
@@ -96,60 +96,25 @@
                     <small>Top Products</small>
                 </h2>
                 <div class="row">
-                    <div class="col-md-6 col-lg-6 col-xl-4 mt-4">
-                        <div class="card text-center">
-                            <img class="card-img-top" src="images/1.webp.jpg" alt="Card">
-                            <div class="card-body">
-                                <p class="card-text text-muted">Price 10$</p>
-                                <a href="#" class="btn btn-outline-secondary">Buy Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 mt-4">
-                        <div class="card text-center">
-                            <img class="card-img-top" src="images/2.webp.jpg" alt="Card">
-                            <div class="card-body">
-                                <p class="card-text text-muted">Price 10$</p>
-                                <a href="#" class="btn btn-outline-secondary">Buy Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 mt-4">
-                        <div class="card text-center">
-                            <img class="card-img-top" src="images/3.webp.jpg" alt="Card">
-                            <div class="card-body">
-                                <p class="card-text text-muted">Price 10$</p>
-                                <a href="#" class="btn btn-outline-secondary">Buy Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 mt-4">
-                        <div class="card text-center">
-                            <img class="card-img-top" src="images/4.webp.jpg" alt="Card">
-                            <div class="card-body">
-                                <p class="card-text text-muted">Price 10$</p>
-                                <a href="#" class="btn btn-outline-secondary">Buy Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 mt-4">
-                        <div class="card text-center">
-                            <img class="card-img-top" src="images/5.webp.jpg" alt="Card">
-                            <div class="card-body">
-                                <p class="card-text text-muted">Price 10$</p>
-                                <a href="#" class="btn btn-outline-secondary">Buy Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 mt-4">
-                        <div class="card text-center">
-                            <img class="card-img-top" src="images/gshock.jpg" alt="Card">
-                            <div class="card-body">
-                                <p class="card-text text-muted">Price 10$</p>
-                                <a href="#" class="btn btn-outline-secondary">Buy Now</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                        $sql = "SELECT * FROM products";
+                        $result = $connect->query($sql);
+                        if ($result->num_rows > 0)
+                        {
+                            while ($row = $result->fetch_assoc())
+                            {
+                                echo "
+                                    <div class='col-md-6 col-lg-6 col-xl-4 mt-4'>
+                                        <div class='card text-center'>
+                                            <img class='card-img-top' src='" . $row["image"] ."' alt='Card image' />
+                                            <div class='card-body'>
+                                                <p class='card-img-top' src='" . $row["image"] ."' alt='Card image' /></p>
+                                            </div>
+                                        </div>
+                                    </div>";
+                            }
+                        }
+                    ?>
                 </div>
                 <div class="row mt-3">
                     <ul class="pagination justify-content-end">
@@ -186,9 +151,9 @@
         <footer class="bg-light text-center">
             <div class="p-3">
                 Footer Information...<br>
-                <a class="text-primary" href="#">Link 1</a> |
-                <a class="text-black text-decoration-none" href="#">Link 2</a> |
-                <a class="text-primary" href="#">Link 3</a> 
+                <a class="blue" href="#">Link 1</a> |
+                <a class="black" href="#">Link 2</a> |
+                <a class="blue" href="#">Link 3</a> 
             </div>
         </footer>
     </div>
