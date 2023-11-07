@@ -59,7 +59,7 @@
                 <div class= "row">
                     <div class="col-md-6 col-lg-12">
                         <div class="list-group ms-1 mt-1">
-                            <a href="#" class="list-group-item list-group-item-secondary text-center bold">Categories</a> <a href="#" class="list-group-item list-group-item-action"></a>
+                            <a href="list.php" class="list-group-item list-group-item-secondary text-center bold">Categories</a> <a href="#" class="list-group-item list-group-item-action"></a>
                             <?php
                                 $sql = "SELECT * FROM products";
                                 $result = $connect->query($sql);
@@ -67,7 +67,7 @@
                                 {
                                     while ($row = $result->fetch_assoc())
                                     {
-                                        echo "<a href='detail.php?id=" . $row["id"] . "'" . "class='list-group-item list-group-item-action'>" . $row["name"]."</a>";
+                                        echo "<a href='#' id='" . $row["id"] . " 'class='list-group-item list-group-item-action'>" . $row["name"]."</a>";
                                     }
                                 }
                             ?>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="col-md-6 col-lg-12">
                         <div class="list-group ms-1 mt-1">
-                            <a href="#" class="list-group-item list-group-item-secondary text-center bold">Top Products</a>
+                            <a href='list.php' class="list-group-item list-group-item-secondary text-center bold">Top Products</a>
                             <?php
                                 $sql = "SELECT * FROM products";
                                 $result = $connect->query($sql);
@@ -83,7 +83,7 @@
                                 {
                                     while ($row = $result->fetch_assoc()) 
                                     {
-                                        echo "<a href='detail.php?id=" . $row["id"] . "'" . "class='list-group-item list-group-item-action'>" . $row["name"]."</a>";
+                                        echo "<a href='#' id='" . $row["id"] . "' class='list-group-item list-group-item-action'>" . $row["name"]."</a>";
                                     }
                                 }
                             ?>
@@ -111,7 +111,7 @@
                                             <div class='card-body'>
                                                 <p class='card-text fw-bold'>" . $row["name"] ."</p>
                                                 <p class='card-text text-muted'>Price: " . $row["price"] ."</p>
-                                                <a href='detail.php?id=" . $row["id"] . "'" . " class='btn btn-outline-secondary'>Buy Now</a>
+                                                <a href='#' id='" . $row["id"] . "' class='btn btn-outline-secondary'>Buy Now</a>
                                             </div>
                                         </div>
                                     </div>";
