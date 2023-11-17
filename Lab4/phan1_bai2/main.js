@@ -1,44 +1,52 @@
-function setCookie() 
-{
-    getname = document.getElementById("name").value;
-    getvalue = document.getElementById("value").value;
-    if (!getname)
-    {
-        alert("Please input name");
+
+function getAllCookie() {
+    var cookies = document.cookie.split(';');
+    var cookieList = [];
+    for(let i = 0; i < cookies.length;i++) {
+        var cookie = cookies[i].trim();
+        var cookieName = cookie.split('=')[0];
+        var cookieValue = cookie.split('=')[1];
+        var cookieObj = {
+            name: cookieName,
+            value: cookieValue
+        };
+        cookieList.push(cookieObj);
     }
-    else if (!getvalue)
-    {
-        alert("Please input value");
-    }
-    else
-    {
-        alert("Complete, press 'Show' to see result");
-    }
-    document.cookie = `${getname}=${getvalue}`;
+    return cookieList;
 }
 
-function deleteCookie()
-{
-    getname = document.getElementById("name").value;
-    getvalue = document.getElementById("value").value;
-    if (!getname)
-    {
-        alert("Please input name");
+function displayAllCookie() {
+    var cookieList = getAllCookie();
+    var table = document.querySelector(".table");
+    for(let i = 0; i < cookieList.length; i++) {
+        var row = table.insertRow();
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = cookieList[i].name;
+        cell2.innerHTML = cookieList[i].value;
     }
-    else if (!getvalue)
-    {
-        alert("Please input value");
-    }
-    else
-    {
-        alert("Complete, press 'Show' to see result");
-    }
-    document.cookie = `${getname}=${getvalue};expires=Thu, 01 Jan 1970 00:00:01 GMT`;
 }
 
-function show()
-{
-    let x = document.cookie;
-    document.getElementById("display").innerHTML = x;
-    alert("Complete");
+function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue  + ";path=/";
 }
+
+function addCookie() {
+    var name = document.forms["myForm"]["name"].value;
+    var value = document.forms["myForm"]["value"].value;
+    setCookie(name,value);
+    updateTable();
+}
+
+function updateTable() {
+    var table = document.querySelector(".table");
+    table.innerHTML = "<tr><th>Name</th><th>Value</th></tr>"
+    displayAllCookie();
+}
+
+function deleteCookie() {
+    var name = document.forms["myForm"]["name"].value;
+    document.cookie = name + '=; expires=Thu, 01, Jan 1970 00:00:00 UTC; path=/;'
+    updateTable();
+}
+  

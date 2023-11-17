@@ -23,26 +23,37 @@
             <div class="col-lg-12 text-center" id="display" style="height: 60px"></div>
         </div>
 
-        <form>
+        <form name="myForm">
             <input type="text" class="form-control mt-3" id="name" placeholder="Name">
             <input type="text" class="form-control mt-3" id="value" placeholder="Value">
         </form>
 
         <div class="row">
             <div class="col text-center">
-                <button class="btn btn-outline-primary mt-3" onclick="setCookie()">Add</button>
+                <button class="btn btn-outline-primary mt-3" onclick="addCookie()">Add</button>
             </div>
             <div class="col text-center">
-                <button class="btn btn-outline-info mt-3" onclick="setCookie()">Edit</button>
+                <button class="btn btn-outline-info mt-3" onclick="addCookie()">Edit</button>
             </div>
             <div class="col text-center">
                 <button class="btn btn-outline-danger mt-3" onclick="deleteCookie()">Delete</button>
             </div>
             <div class="col text-center">
-                <button class="btn btn-dark mt-3" onclick="show()">Show</button>
+                <button class="btn btn-dark mt-3" onclick="updateTable()">Show</button>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col text-center">
+                <table class="table table-dark" >
+                    <tr>
+                        <th>Name</th>
+                        <th>Value</th>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
