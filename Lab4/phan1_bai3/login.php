@@ -23,6 +23,10 @@
             
             <input type="text" class="form-control mt-3" name="username" placeholder="Username">
             <input type="password" class="form-control mt-3" name="password" placeholder="Password">
+            <div class = "mt-3">
+                <input type="checkbox" class="form-control mt-3" id="remember" name="remember" value="Remember me">
+                <label for="remember">Remember me</label>
+            </div>
             <div class = "text-center">
                 <input type="submit" class="form btn btn-outline-primary mt-3" name="submit" value="Login">
             </div>
