@@ -16,6 +16,7 @@ function getAllCookie() {
 }
 
 function displayAllCookie() {
+    if (document.cookie == "") return;
     var cookieList = getAllCookie();
     var table = document.querySelector(".table");
     for(let i = 0; i < cookieList.length; i++) {

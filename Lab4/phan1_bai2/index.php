@@ -1,9 +1,3 @@
-<?php
-    setcookie("username1", "admin1", time() + 600);
-    setcookie("username2", "admin2", time() + 600);
-    setcookie("username3", "admin3", time() + 600);
-    setcookie("username4", "admin4", time() + 600);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
