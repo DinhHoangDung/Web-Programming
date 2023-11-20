@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if (!isset($_SESSION['username']) && !isset($_COOKIE['username'])) 
+    {
+        header('location: login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +22,18 @@
 
         <div class="row">
             <div class="col-lg-12" style="height: 166px">
-                <h6 class="fw-bold text-center mt-3">Your username: <?php echo $_SESSION['username'] ?></h6>
+                <h6 class="fw-bold text-center mt-3">Your username: 
+                    <?php 
+                        if (isset($_SESSION['username']))
+                        {
+                            echo $_SESSION['username'];
+                        }
+                        else if (isset($_COOKIE['username']))
+                        {
+                            echo $_COOKIE['username'];
+                        }
+                    ?>
+                </h6>
                 <div class="col-lg-12" style="height: 50px"></div>
                 <form method="post" action="logout.php">
                     <div class = "text-center">

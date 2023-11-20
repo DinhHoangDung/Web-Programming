@@ -1,5 +1,8 @@
 <?php
     session_start();
+    session_destroy();
+    setcookie('username', '', time()-3600);
+    echo "<script>alert('Logout success!')</script>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,10 +15,6 @@
 
 </head>
 <body>
-    <?php
-        session_destroy();
-        echo "<script>alert('Logout success!')</script>";
-    ?>
     <div class="container" style="width: 400px;">
     <div class="row">
         <button class="btn btn-primary mt-3" onclick="location.href='login.php'">Login</button>

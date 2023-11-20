@@ -1,5 +1,36 @@
 <?php
     session_start();
+    if (isset($_SESSION['username'])) 
+    {
+        header("Location: info.php");
+    }
+    else
+    {
+        if(isset($_COOKIE['username']))
+        {
+            header("Location: info.php");
+        }
+    }
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        if ($username == 'admin' && $password == '123')
+        {
+            $_SESSION['username'] = $username;
+            if(isset($_POST['remember']))
+            {
+                setcookie('username', $username, time() + 3600);
+                setcookie('password', $password, time() + 3600);
+            }
+            header("Location: info.php");
+            exit();
+        }
+        else
+        {
+            $error_message = "Invalid username or password";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -23,33 +54,11 @@
             
             <input type="text" class="form-control mt-3" name="username" placeholder="Username">
             <input type="password" class="form-control mt-3" name="password" placeholder="Password">
-            <div class = "mt-3">
-                <input type="checkbox" class="form-control mt-3" id="remember" name="remember" value="Remember me">
-                <label for="remember">Remember me</label>
-            </div>
+            <label>
+                <input type="checkbox" name="remember"> Remember me
             <div class = "text-center">
                 <input type="submit" class="form btn btn-outline-primary mt-3" name="submit" value="Login">
             </div>
         </form>
     </div>
-    <?php
-        if(isset($_SESSION['username'])) 
-        {
-            header('Location: info.php');
-        }
-        if (isset($_POST['submit'])) 
-        {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            if ($username == 'admin' && $password == '123') 
-            {
-                $_SESSION['username'] = $username;
-                header('location: info.php');
-            }
-            else
-            {
-                echo "<script>alert('Invalid username or password')</script>";
-            }
-        }
-    ?>
 </body>
