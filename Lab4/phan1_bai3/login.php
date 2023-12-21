@@ -32,7 +32,6 @@
         }
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,14 +50,16 @@
         </div>
 
         <form action="login.php" method="post">
-            
             <input type="text" class="form-control mt-3" name="username" placeholder="Username">
             <input type="password" class="form-control mt-3" name="password" placeholder="Password">
-            <label>
-                <input type="checkbox" name="remember"> Remember me
-            <div class = "text-center">
-                <input type="submit" class="form btn btn-outline-primary mt-3" name="submit" value="Login">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="remember" id="remember">
+                <label class="form-check-label" for="remember">Remember me</label>
+            </div>
+            <div class="text-center">
+                <input type="submit" class="btn btn-outline-primary mt-3" name="submit" value="Login">
             </div>
         </form>
     </div>
 </body>
+</html>
